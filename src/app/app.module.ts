@@ -10,7 +10,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import {RouterModule, Routes} from '@angular/router';
 import {UserService} from './user.service';
 import {MyguardGuard} from './myguard.guard';
-
+import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 
 const appRutes:Routes = [
      {
@@ -31,10 +31,13 @@ const appRutes:Routes = [
     HeaderComponent,
     LoginComponent,
     FooterComponent,
-    DashboardComponent
+    DashboardComponent,
+    
   ],
   imports: [
     RouterModule.forRoot(appRutes),
+    FormsModule,
+    ReactiveFormsModule,  
     BrowserModule
   ],
   providers: [UserService, MyguardGuard],

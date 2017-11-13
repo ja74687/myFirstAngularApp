@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ViewEncapsulation } from '@angular/core'
 import {Router} from '@angular/router'
 import {UserService} from '../user.service'
+import {NgForm} from '@angular/forms';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -16,11 +18,8 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  loginUser(e){
-    e.preventDefault();
-    var username = e.target.elements[0].value;
-    var password = e.target.elements[1].value;
-    if(username == "admin" && password == "admin")
+  loginUser(f: NgForm){
+    if(f.value.loginText == "admin" && f.value.passwordText == "admin")
     {
       this.user.setUserLogged();
       this.router.navigate(['dashboard']);
